@@ -37,3 +37,39 @@ int BusquedaBinaria_INV(T x, T v[], int ini, int fin){
         }
 
 }
+
+
+template <typename T>
+int Partition(T v[], int ini, int fin){
+
+	T x = v[fin];
+	int i = ini;
+
+	for(int j = ini; j <= fin-1; j++){
+		if(v[j] <= x){
+			T aux = v[i];
+			v[i] = v[j];
+			v[j] = aux;
+
+			i++;
+		}
+	}
+	
+	T aux = v[i];
+        v[i] = v[fin];
+        v[fin] = aux;
+
+	return i;
+}
+
+
+template <typename T>
+void QuickSort(T v[], int ini, int fin){
+        if(ini < fin){
+                int pivot = Partition(v, ini, fin);
+
+                QuickSort(v, ini, pivot-1);
+                QuickSort(v, pivot+1, fin);
+        }
+}
+
