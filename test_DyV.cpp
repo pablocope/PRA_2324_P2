@@ -25,38 +25,36 @@ int main(){
 	}
 	imprimir_vector(vector_desordenado, 10);
 	
-	auto start = chrono::system_clock::now();
-	//ordenamos el vector
-	QuickSort(vector_desordenado, 0, 9);
-	auto end = chrono::system_clock::now();
-	chrono::duration<float, milli> duration = end - start;
-	cout << "Duración QuickSort (pivote fin): " << duration.count() << "s" << std::endl;
+	auto start_fin = std::chrono::system_clock::now();
+    	QuickSort(vector_desordenado, 0, 9);
+    	auto end_fin = std::chrono::system_clock::now();
+    	std::chrono::duration<float, std::milli> duration_fin = end_fin - start_fin;
+    	cout << "Duración QuickSort (pivote fin): " << duration_fin.count() << "ms" << std::endl;
 
-	imprimir_vector(vector_desordenado, 10);
+    	imprimir_vector(vector_desordenado, 10);
 
-	auto start = chrono::system_clock::now();
-        //ordenamos el vector
-        QuickSort_mid(vector_desordenado2, 0, 9);
-        auto end = chrono::system_clock::now();
-        chrono::duration<float, milli> duration = end - start;
-        cout << "Duración QuickSort (pivote mid): " << duration.count() << "s" << std::endl;
+    	// QuickSort con pivote en el medio
+    	auto start_mid = std::chrono::system_clock::now();
+    	QuickSort_mid(vector_desordenado2, 0, 9);
+    	auto end_mid = std::chrono::system_clock::now();
+    	std::chrono::duration<float, std::milli> duration_mid = end_mid - start_mid;
+    	cout << "Duración QuickSort (pivote mid): " << duration_mid.count() << "ms" << std::endl;
 
-	imprimir_vector(vector_desordenado2, 10);
+    	imprimir_vector(vector_desordenado2, 10);
 
-	auto start = chrono::system_clock::now();
-        //ordenamos el vector
-        QuickSort_ini(vector_desordenado3, 0, 9);
-        auto end = chrono::system_clock::now();
-        chrono::duration<float, milli> duration = end - start;
-        cout << "Duración QuickSort (pivote ini): " << duration.count() << "s" << std::endl;
+    	// QuickSort con pivote al inicio
+    	auto start_ini = std::chrono::system_clock::now();
+    	QuickSort_ini(vector_desordenado3, 0, 9);
+    	auto end_ini = std::chrono::system_clock::now();
+    	std::chrono::duration<float, std::milli> duration_ini = end_ini - start_ini;
+	cout << "Duración QuickSort (pivote ini): " << duration_ini.count() << "ms" << std::endl;
 
-	imprimir_vector(vector_desordenado3, 10);
+    	imprimir_vector(vector_desordenado3, 10);
 
 	//buscamos un número aleatorio a ver si está
 	int n = rand() % 10;
 
 	cout << "Dado un vector con los números del 0 al 9 ordenados: " << endl;
-
 	cout << "Buacamos el número " << n << endl;
 	cout << "El número se encuentra en la posición " << BusquedaBinaria(n, vector_desordenado, 0, 10) << endl;
 
