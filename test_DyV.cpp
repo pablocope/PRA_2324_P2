@@ -56,12 +56,18 @@ int main(){
 
 	cout << "Dado un vector con los números del 0 al 9 ordenados: " << endl;
 	cout << "Buacamos el número " << n << endl;
-	cout << "El número se encuentra en la posición " << BusquedaBinaria(n, vector_desordenado, 0, 10) << endl;
+	
+	if(BusquedaBinaria(n, vector_desordenado, 0, 10) >= 0){
+		cout << "El número se encuentra en la posición " << BusquedaBinaria(n, vector_desordenado, 0, 10) << endl;
+	}else{
+		cout << "El número no se encuentra en el array" << endl;
+	}
 
-/*
-	cout << "En el caso de tener un vector ordenado en orden inverso ..." << endl;
-	cout << "Buacamos el número " << n << endl;
-        cout << "El número se encuentra en la posición " << BusquedaBinaria_INV(n, vector_prueba_inv, 0, 10) << endl;
+/*	
+ *	//PARA EL QUICK SORT INVERSO
+ *	cout << "En el caso de tener un vector ordenado en orden inverso ..." << endl;
+ *	cout << "Buacamos el número " << n << endl;
+ *      cout << "El número se encuentra en la posición " << BusquedaBinaria_INV(n, vector_prueba_inv, 0, 10) << endl;
 */
 	return 0;
 }
